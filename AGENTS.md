@@ -3,7 +3,8 @@
 This file is the canonical set of agent rules for this repository, adapted
 from `/home/shawn/daan/AGENTS.md`. Preserve the source's engineering, SDLC,
 collaboration, CI, operations, and safety policies. Only its trading business
-logic is replaced by this project's birth and fertility projection requirements.
+logic is replaced by this project's historical review of polling and forecasting
+organizations.
 
 `CLAUDE.md` must import this file when Claude support is added.
 `docs/CONTRIBUTING.md` must be a Chinese overview linking to these rules,
@@ -40,10 +41,13 @@ Do not claim source-repository settings are verified settings of this repository
 
 ## Project scope
 
-Build a static website presenting birth and fertility projections for the next
-50 years, deployed on Cloudflare. Geographic coverage, baseline year, source
-datasets, and projection methodology must be established before publishing
-numerical results; do not silently assume them.
+Build a static website reviewing polling and forecasting organizations across
+past years, deployed on Cloudflare. Present sourced institutional histories,
+historical polls and published forecasts, and retrospective comparisons with
+actual outcomes where comparable evidence exists. Geographic coverage, time
+range, included organizations, source datasets, and comparison methodology must
+be established before publishing numerical results or rankings; do not silently
+assume them. Historical review does not itself authorize new forecasts.
 
 This file is the canonical source of agent rules for this repository. Keep
 agent instructions in English and human-facing documentation and interface
@@ -52,34 +56,53 @@ copy in Traditional Chinese unless the user requests another language.
 ## Website usability
 
 - Make charts and navigation accessible, responsive, and usable with a keyboard.
-  Do not rely on color alone to distinguish scenarios or data categories.
+  Do not rely on color alone to distinguish organizations or data categories.
 - Explain metric names, units, chart controls, and assumptions in Traditional
   Chinese. Missing data must remain distinguishable from zero.
 
-## Data integrity and projection transparency
+## Historical evidence and comparison transparency
 
-- Prefer official statistics and primary sources. Record the source URL,
-  publisher, dataset version or publication date, retrieval date, geographic
-  coverage, units, and relevant definitions for every dataset.
-- Distinguish observed data, published projections, and this project's modeled
-  results in both the data and the interface. Never present a scenario as a
-  certain future or fabricate missing observations.
-- Define birth counts, fertility rates, and population measures separately;
-  do not substitute one metric for another.
-- State the baseline year, projection horizon, model, and assumptions. Clearly
-  identify the 50-year projection window and the last observed year.
-- Explain how fertility, mortality, migration, and population age structure
-  enter the model when applicable. Document omitted factors and limitations.
-- Make uncertainty visible through clearly labeled scenarios or supported
-  intervals. Do not label scenario ranges as statistical confidence intervals
-  without a statistical basis. Avoid unsupported numerical precision.
-- Keep raw inputs separate from derived outputs. Make data preparation and
-  projection generation reproducible, and record the input and model versions
-  used to produce published results.
-- Verify year coverage, units, missing values, duplicates, and domain constraints
-  before publishing. Explain material discrepancies with source statistics.
-- Display data provenance, assumptions, limitations, and update dates where
-  readers can find them alongside the results.
+- Prefer original poll releases, organization publications, archived forecasts,
+  and official outcome records. Record source and archive URLs when available,
+  publisher, publication date, dataset version, retrieval date, geographic
+  coverage, units, and definitions. Disclose unavailable original sources and
+  identify secondary evidence explicitly; never fabricate missing records.
+- Distinguish institutional history, survey observations, forecasts published
+  at the time, official outcomes, and this project's retrospective calculations
+  in both the data and the interface. Cite evidence for institutional milestones,
+  name changes, affiliations, and attributed claims; separate fact from commentary.
+- Record each organization's identity, historical names, and role as pollster,
+  commissioner, publisher, aggregator, or forecaster where applicable. Do not
+  merge different organizations or attribute a commissioned poll to its sponsor
+  as though the sponsor conducted it without supporting evidence.
+- For each poll, preserve fieldwork dates and publication date, target population,
+  geography, sample size, sampling and interview methods, question wording,
+  weighting, undecided-response treatment, and reported uncertainty when
+  available. Mark undisclosed fields as unknown rather than inferring them.
+- Define support percentages, vote shares, seat estimates, probabilities, and
+  polling or forecast errors separately. Distinguish percent from percentage
+  points, and do not treat a poll as a forecast or a win probability as vote share.
+- State the covered years, events, organizations, inclusion and exclusion rules,
+  data cutoff, and latest available record. Preserve original published forecast
+  timestamps and versions separately from corrections and later revisions;
+  retrospective evaluation must not use information unavailable at its cutoff.
+- Compare like targets, populations, events, and forecast horizons. Publish the
+  chosen error or scoring definitions, aggregation weights, sample counts, and
+  treatment of missing polls, undecided voters, withdrawals, and revised results.
+  Explain selection bias, incomplete archives, methodology changes, and limits
+  on comparisons across years or organizations; do not publish unsupported ranks.
+- Preserve uncertainty as reported and explain its scope. Sampling margins of
+  error, forecast intervals, and event probabilities are different measures;
+  do not invent confidence intervals or imply that sampling error captures all
+  sources of error. Avoid unsupported numerical precision and partisan framing.
+- Keep immutable raw releases separate from normalized records and derived
+  comparisons. Make preparation and evaluation reproducible, recording input
+  versions, transformation rules, and evaluation-method versions for each output.
+- Verify date coverage and ordering, units, missing values, duplicates, identities,
+  probability and percentage bounds, and outcome alignment before publication.
+  Retain documented exceptions and explain material discrepancies with sources.
+- Display sources, archived evidence, comparison assumptions, limitations,
+  corrections, and update dates alongside the historical records and results.
 
 ## Static website and Cloudflare deployment
 
@@ -88,7 +111,7 @@ copy in Traditional Chinese unless the user requests another language.
 - Keep the site compatible with the selected Cloudflare static hosting setup.
   Document its build command, output directory, and deployment configuration
   when those choices are made; do not assume an existing deployment exists.
-- Precompute expensive data transformations and projections when practical.
+- Precompute expensive data transformations and historical comparisons when practical.
   Keep browser downloads and dependencies proportional to the site's needs.
 - Never embed credentials, deployment tokens, personal data, or private source
   material in repository files or public assets. Browser assets are public.
@@ -353,7 +376,7 @@ label as its own `--label` option on the same `gh issue create` command:
   label. `P2` is the normal planned-work default; reserve `P0` for immediate
   protection of people, assets or delivery, `P1` for important near-term work,
   and `P3` for useful work with no near-term dependency.
-- `risk:high` when the owned scope touches data interpretation, projection models,
+- `risk:high` when the owned scope touches data interpretation, comparison methods,
   public results, credentials or production deployment. It marks what a reviewer,
   and the daily release round that owns
   Nightly runtime quality since #598, have to look at hardest; it no longer
@@ -618,7 +641,7 @@ order. Do not start step N before step N-1 is actually done.
      artifact exists without verifying the run and revision that produced it.
    - Data and model changes: add meaningful source-data validation and model
      regression tests to CI. Include units, missing values, year coverage,
-     scenario assumptions, reproducibility, and consistency with known cases.
+     comparison assumptions, reproducibility, and consistency with known cases.
      Visual changes require the applicable accessibility and browser checks.
    - Preserve separate PR and stable-release verification. PRs merge on their
      applicable head checks. Expensive Nightly quality runs belong to the
@@ -989,7 +1012,7 @@ covered once, in the Issue-first section.
   Cloudflare-hosted build service to bypass the self-hosted execution policy.
 - Verify a preview before production publication. Check affected routes, mobile
   layouts, chart controls, accessibility, data loading, source citations, and
-  displayed model assumptions. Record the preview URL and source revision.
+  displayed comparison assumptions. Record the preview URL and source revision.
 - Follow the user's production-deployment authorization and the configured
   release policy. Keep preview and production targets explicit, keep tokens in
   secret stores, and retain a known working deployment for rollback.
