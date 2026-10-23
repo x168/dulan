@@ -1,5 +1,37 @@
 # Agent Working Rules
 
+## Internal documentation uses ASD-STE100 style
+
+Use ASD-STE100 Simplified Technical English style for all internal documentation.
+Write this documentation in English.
+This rule applies to instructions, policies, prompts, runbooks, engineering notes, task briefs, templates, reference material, and evidence summaries.
+It applies to internal documents for people and agents, in every file format.
+This rule takes priority over other language rules for internal documentation.
+Keep the existing language rules for public content and product interfaces.
+
+When you add or change internal text, apply these rules:
+
+- Use a maximum of 20 words in each procedural sentence.
+- Use a maximum of 25 words in each descriptive sentence.
+- Give one instruction in each sentence.
+- Write instructions as direct commands in the active voice.
+- Put a necessary condition before the instruction.
+- Use the same term for the same item throughout the document.
+- Use simple words with one clear meaning.
+- Define necessary technical names, technical verbs, and abbreviations.
+- Keep each paragraph on one topic.
+- Avoid idioms, slang, and unnecessary words.
+
+Preserve technical meaning and required actions.
+Keep commands, identifiers, required template headings, source quotations, raw logs, and historical evidence exact.
+Explain quoted material in ASD-STE100 style when an explanation is necessary.
+Apply the rule to new text and text you revise.
+Do not rewrite unrelated documents as part of another task.
+
+Use the [official ASD-STE100 specification](https://www.asd-ste100.org/assets/files/ASD-STE100_ISSUE9.pdf) for the complete rules and dictionary.
+These instructions require its writing style.
+Claim full compliance only after review against the complete specification.
+
 This file is the canonical set of agent rules for this repository, adapted
 from `/home/shawn/daan/AGENTS.md`. Preserve the source's engineering, SDLC,
 collaboration, CI, operations, and safety policies. Only its trading business
