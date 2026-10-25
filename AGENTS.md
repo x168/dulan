@@ -6,6 +6,8 @@ Use ASD-STE100 Simplified Technical English style for all internal documentation
 Write this documentation in English.
 This rule applies to instructions, policies, prompts, runbooks, engineering notes, task briefs, templates, reference material, and evidence summaries.
 It applies to internal documents for people and agents, in every file format.
+Operations runbooks, engineering plans, and internal product requirements are internal documentation.
+Use English for these documents, including documents read only by humans.
 This rule takes priority over other language rules for internal documentation.
 Keep the existing language rules for public content and product interfaces.
 
@@ -48,14 +50,14 @@ Read [docs/BUSINESS_PLAN.md](docs/BUSINESS_PLAN.md) for business decisions.
 Read [docs/PRODUCT_REQUIREMENTS.md](docs/PRODUCT_REQUIREMENTS.md) for product requirements.
 Read [docs/PROJECT_MANAGEMENT.md](docs/PROJECT_MANAGEMENT.md) for stage decisions and evidence.
 Use those documents to understand the task's requirements, not to define agent operating rules.
-Keep agent instructions in English and human-facing documentation in Traditional
-Chinese unless the user requests another language.
+Apply the ASD-STE100 section to internal documents.
+Use Traditional Chinese for public, human-facing content unless the user requests another language.
 
 `CLAUDE.md` must import this file when Claude support is added.
-`docs/CONTRIBUTING.md` must be a Chinese overview linking to these rules,
-without adding or duplicating agent rules. When another document conflicts
-with this file about agent operating rules, follow this file and open an Issue
-for the conflict. Product documents remain authoritative for product decisions.
+`docs/CONTRIBUTING.md` must link to these rules without adding or duplicating them.
+When another document conflicts with these agent rules, follow this file.
+Open an Issue for the conflict.
+Product documents remain authoritative for product decisions.
 
 ### Ported infrastructure requirements and current availability
 
@@ -130,15 +132,12 @@ mechanical system limitations.
    Safety checks must provide constructive paths forward (such as safe standby
    modes, graceful degradation, or actionable guidance) rather than treating
    out-of-bounds inputs with crude termination or unhandled exceptions.
-6. **Agent documentation language:**
-   All instruction files, rules, and guidelines intended for agent consumption
-   must be written in English. The canonical agent documents are `AGENTS.md`,
-   `.github/ISSUE_TEMPLATE/agent-task.yml`, and any future `docs/agents/`
-   files. Human-facing documents—including `docs/`, operations runbooks, and
-   the pull-request template—must be written in Chinese. Agents may consult
-   those human documents as evidence or operator context, but must not depend
-   on them for agent operating rules; put every such rule in an English
-   canonical agent document.
+6. **Documentation language and authority:**
+   Apply the ASD-STE100 section to internal documentation.
+   The canonical agent documents are `AGENTS.md`,
+   `.github/ISSUE_TEMPLATE/agent-task.yml`, and any future `docs/agents/` files.
+   Agents may consult other documents for requirements, evidence, and operator context.
+   Keep agent operating rules in the canonical agent documents.
 
 ## GitHub event-history lookup
 
