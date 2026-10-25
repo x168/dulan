@@ -11,6 +11,7 @@ Taiwan Public Funds Intelligence
 本次交付是專案方向與商業計畫修訂。儲存庫尚未提供可執行網站、已驗證的全台資料、付款服務或正式部署；定價、十年歷史覆蓋與商業成效仍須驗證。
 
 - [商業計畫與產品邊界](docs/BUSINESS_PLAN.md)
+- [產品需求、資料語意與介面規格](docs/PRODUCT_REQUIREMENTS.md)
 - [階段決策與交付證據原則](docs/PROJECT_MANAGEMENT.md)
 - [工程與代理工作規則](AGENTS.md)
 - [GitHub Issues](https://github.com/x168/dulan/issues)：唯一工作佇列。
