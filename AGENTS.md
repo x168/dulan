@@ -35,7 +35,7 @@ Claim full compliance only after review against the complete specification.
 This file is the canonical set of agent rules for this repository, adapted
 from `/home/shawn/daan/AGENTS.md`. Preserve the source's engineering, SDLC,
 collaboration, CI, operations, and safety policies. Only its trading business
-logic is replaced by this project's birth and fertility projection requirements.
+logic is replaced by this project's Taiwan public funds intelligence requirements.
 
 `CLAUDE.md` must import this file when Claude support is added.
 `docs/CONTRIBUTING.md` must be a Chinese overview linking to these rules,
@@ -72,10 +72,29 @@ Do not claim source-repository settings are verified settings of this repository
 
 ## Project scope
 
-Build a static website presenting birth and fertility projections for the next
-50 years, deployed on Cloudflare. Geographic coverage, baseline year, source
-datasets, and projection methodology must be established before publishing
-numerical results; do not silently assume them.
+Build Taiwan Public Funds Intelligence, a platform that connects Taiwan's
+government procurement awards with central and local government grants to
+private organizations. Serve businesses researching public sector markets,
+with public access for readers and journalists. The paying customer is a
+business; government is the subject of the intelligence, not an assumed buyer.
+
+Use public topic pages to demonstrate the analysis. Sell deeper research on
+other entities and structured exports. Treat prices, demand, conversion rates,
+operating costs, and ten-year coverage as hypotheses until evidence supports
+them. The business plan is in `docs/BUSINESS_PLAN.md`.
+
+The initial product is not personalized. Use the same search, topic selection,
+ranking rules, and content for all visitors with the same access rights.
+Do not add saved searches, watchlists, personalized recommendations, individual
+notifications, CRM integration, or uploads of private proposal documents.
+Payment records and access rights may support purchases without creating
+behavior profiles. The proposed five-entity monitoring add-on is excluded.
+
+Target Cloudflare hosting with static public pages and precomputed analysis.
+Paid access requires a minimal server-side authorization service. Establish
+source access, licenses, actual coverage, entity matching, and metric definitions
+before publishing results or selling a dataset. Do not assume full national
+coverage, ten complete years, or a production deployment.
 
 This file is the canonical source of agent rules for this repository. Keep
 agent instructions in English and human-facing documentation and interface
@@ -84,48 +103,97 @@ copy in Traditional Chinese unless the user requests another language.
 ## Website usability
 
 - Make charts and navigation accessible, responsive, and usable with a keyboard.
-  Do not rely on color alone to distinguish scenarios or data categories.
+  Do not rely on color alone to distinguish funding types or data categories.
 - Explain metric names, units, chart controls, and assumptions in Traditional
   Chinese. Missing data must remain distinguishable from zero.
+- Provide table alternatives for charts, including Sankey and network views.
+  Show sources, coverage dates, exclusions, and correction history near results.
+- Keep public topic pages available without login. Explain paid content and
+  export scope before checkout, including the actual available date range.
 
-## Data integrity and projection transparency
+## Public and paid access
 
-- Prefer official statistics and primary sources. Record the source URL,
-  publisher, dataset version or publication date, retrieval date, geographic
-  coverage, units, and relevant definitions for every dataset.
-- Distinguish observed data, published projections, and this project's modeled
-  results in both the data and the interface. Never present a scenario as a
-  certain future or fabricate missing observations.
-- Define birth counts, fertility rates, and population measures separately;
-  do not substitute one metric for another.
-- State the baseline year, projection horizon, model, and assumptions. Clearly
-  identify the 50-year projection window and the last observed year.
-- Explain how fertility, mortality, migration, and population age structure
-  enter the model when applicable. Document omitted factors and limitations.
-- Make uncertainty visible through clearly labeled scenarios or supported
-  intervals. Do not label scenario ranges as statistical confidence intervals
-  without a statistical basis. Avoid unsupported numerical precision.
-- Keep raw inputs separate from derived outputs. Make data preparation and
-  projection generation reproducible, and record the input and model versions
-  used to produce published results.
-- Verify year coverage, units, missing values, duplicates, and domain constraints
-  before publishing. Explain material discrepancies with source statistics.
-- Display data provenance, assumptions, limitations, and update dates where
-  readers can find them alongside the results.
+- Select hot entities through documented public-interest criteria and aggregate
+  signals. Record supporting sources, selection time, review, and expiry rules.
+  Use the same topic policy for all visitors. Do not infer wrongdoing from
+  popularity, funding totals, or inclusion in a topic.
+- Unlock all publishable analysis within the verified coverage for hot entities.
+  Keep source, privacy, and data quality requirements in force for free and paid
+  content. Show current-year basic data for other entities, with its cutoff date.
+- Restrict other entities' historical analysis and comparisons to paid access.
+  Charge separately for structured bulk exports in the initial offer. Define
+  subscription and export entitlements explicitly; do not invent a premium tier.
+- Enforce paid access on the server. Never ship restricted rows in public JSON,
+  HTML, JavaScript, source maps, static artifacts, or shared caches. A blurred
+  chart is a preview, not an access control. Keep export storage private.
+- Verify transaction and entitlement state before serving paid data. Prevent
+  cross-user cache leakage and invalidate access after expiry or refund.
+- Public information can be copied. Sell cleaning, traceability, comparison,
+  and export convenience without promising to prevent all copying of free data.
 
-## Static website and Cloudflare deployment
+## Data integrity and evidence
 
-- Prefer static HTML, CSS, JavaScript, and versioned data assets. Add a runtime
-  backend or external service only when a concrete requirement justifies it.
-- Keep the site compatible with the selected Cloudflare static hosting setup.
-  Document its build command, output directory, and deployment configuration
-  when those choices are made; do not assume an existing deployment exists.
-- Precompute expensive data transformations and projections when practical.
-  Keep browser downloads and dependencies proportional to the site's needs.
-- Never embed credentials, deployment tokens, personal data, or private source
-  material in repository files or public assets. Browser assets are public.
-- Keep preview and production destinations identifiable. Verify the generated
-  site before deployment, and retain a known working revision for rollback.
+- Prefer official procurement notices, grant disclosures, and primary sources.
+  Record each source URL, publisher, publication or dataset version, retrieval
+  date, license, coverage, currency, units, definitions, and update frequency.
+- Preserve original files separately from normalized records and derived
+  analysis. Version the inputs, transformations, matching rules, and outputs.
+  Make preparation reproducible and retain source correction history.
+- Distinguish procurement budgets, bid prices, award amounts, grant approvals,
+  and actual payments. Do not call an award or approval an actual cash receipt.
+  Do not treat a contract's total as annual revenue or recognized revenue.
+- Store announcement, award, approval, payment, and performance dates separately.
+  State which date defines each yearly series. Label partial years and observed
+  coverage; do not fill absent years with zero or advertise unverified history.
+- Use organization identifiers when available. Preserve names and aliases from
+  each source. Handle missing identifiers, name changes, and ambiguous matches
+  explicitly. Do not merge entities solely because their names are similar.
+- Distinguish notices, contracts, lots, awardees, and amendments. Handle multiple
+  awards, cancellations, refunds, and cumulative grant reports without counting
+  the same amount twice. Do not add procurement and grants into one cash total
+  unless their meanings and possible overlap have been reconciled.
+- Validate identifiers, date coverage, units, missing values, duplicates, amount
+  domains, and source totals before publication. Explain discrepancies and
+  preserve negative adjustments when the source supports them.
+- Label facts, calculated statistics, and forecasts separately. Explain each
+  formula, denominator, comparison group, sample size, and missing-data rule.
+  Use an award-to-budget ratio only for compatible, positive amounts and scope.
+  That ratio is not a losing bid, profit margin, or recommended winning price.
+- Show material uncertainty and coverage limits. Avoid unsupported numerical
+  precision. Label estimated ranges as estimates, not statistical confidence
+  intervals unless a documented statistical method supports that label.
+- Calculate win rates only with a verified denominator of eligible bids,
+  including losses. Award-only data supports award counts, not a win rate.
+  Suppress unsupported metrics instead of inventing observations.
+- Use agency distributions and source-backed award patterns for competitive
+  research. Do not infer individual evaluators' preferences, political ties,
+  corruption, or undisclosed relationships from co-occurrence or funding alone.
+  Exclude individual evaluator profiling from the initial product.
+- A published contract end date can support a dated opportunity hypothesis.
+  It does not prove a renewal, a future procurement, a new grant, or its budget.
+  Keep official announcements separate from estimated recurrence.
+- Network and Sankey edges must identify the documented relationship and
+  amount type. An award edge does not establish that money was transferred.
+  Do not publish personal grant recipients or private contact details in the
+  initial organization-focused dataset.
+- Use neutral headlines and cited evidence for public topics. Distinguish an
+  allegation, an official finding, and a correction. Provide a correction path.
+  Do not imply guilt from a topic label or manufacture sensational rankings.
+
+## Cloudflare hosting and access architecture
+
+- Prefer static HTML, CSS, JavaScript, and versioned public data assets.
+  Precompute expensive joins and aggregates. Keep downloads and dependencies
+  proportional to the site's needs.
+- Use a minimal runtime service for payment verification, entitlements, private
+  queries, and authorized downloads. Select Cloudflare products and payment
+  providers through an owned task; no account or deployment is assumed ready.
+- Document build commands, artifact locations, output directories, public and
+  private data boundaries, and deployment configuration when selected.
+- Never embed credentials, deployment tokens, transaction records, private data,
+  or restricted commercial datasets in public assets. Browser assets are public.
+- Keep preview and production destinations identifiable. Verify artifacts and
+  authorization before deployment. Retain a working revision for rollback.
 
 ## Human-centric operational and engineering design principles
 
@@ -166,7 +234,7 @@ mechanical system limitations.
    cryptic failures.
 5. **Constructive safeguards over punitive failure:**
    Boundary validations, guard rails, and safety gates exist to protect
-   source data, model integrity, published results, and deployment state from
+   source data, analysis integrity, published results, and deployment state from
    catastrophic error—not
    to set traps that penalize legitimate preparation or operational setup.
    Safety checks must provide constructive paths forward (such as safe standby
@@ -361,7 +429,7 @@ The first run only prepares a draft; fill and review it, truthfully check the de
 then repeat the command. Never use `--fill`, inline `--body`, or a heredoc.
 
 The completed body states purpose and scope, workstation review, known limits and blockers,
-and artifact locations for data, model or deployment changes. It retains `## 變更摘要`,
+and artifact locations for data, analysis or deployment changes. It retains `## 變更摘要`,
 `## 驗證` and `## 風險與後續工作`; the first and third have visible content, and all
 three canonical declarations under `## 驗證` are checked `- [x]` only when true. CI result
 checklists do not belong in the body: GitHub checks for the head are their sole authority.
@@ -385,9 +453,9 @@ label as its own `--label` option on the same `gh issue create` command:
   label. `P2` is the normal planned-work default; reserve `P0` for immediate
   protection of people, assets or delivery, `P1` for important near-term work,
   and `P3` for useful work with no near-term dependency.
-- `risk:high` when the owned scope touches data interpretation, projection models,
-  public results, credentials or production deployment. It marks what a reviewer,
-  and the daily release round that owns
+- `risk:high` when the owned scope touches data interpretation, entity matching,
+  public results, paid access, credentials or production deployment. It marks
+  what a reviewer, and the daily release round that owns
   Nightly runtime quality since #598, have to look at hardest; it no longer
   requires a per-pull-request gate of its own.
 - `type:epic` on an umbrella Issue. An epic owns no code scope of its own and
@@ -457,8 +525,8 @@ import trading milestones or silently invent a product roadmap.
 A milestone existing does not open its stage, and closing every Issue does not
 by itself prove the stage passed. Define and record stage decisions and exit
 evidence in the project-management documentation. Dataset availability,
-validated methodology, accessible presentation, and verified publication are
-examples of gates to define for this project, not claims already satisfied.
+validated matching and metrics, accessible presentation, and verified publication
+are examples of gates to define for this project, not claims already satisfied.
 
 All tasks, priorities, dependencies, product-gate work, external/manual blockers,
 portfolio initiatives, technical debt, and follow-ups belong in GitHub Issues.
@@ -643,14 +711,15 @@ order. Do not start step N before step N-1 is actually done.
      unexecuted check passed. A build over an edited tree is not evidence for the
      pull-request revision.
    - Static web: generate deployment assets in self-hosted CI, with an
-     artifact tied to the exact source revision and data/model versions.
+     artifact tied to the exact source revision and data/analysis versions.
      Retrieve and commit the generated deployable files from that CI artifact,
      and require a committed-output drift check, preserving the source policy.
      Never substitute a workstation build or claim an
      artifact exists without verifying the run and revision that produced it.
-   - Data and model changes: add meaningful source-data validation and model
-     regression tests to CI. Include units, missing values, year coverage,
-     scenario assumptions, reproducibility, and consistency with known cases.
+   - Data and analysis changes: add meaningful source-data validation and analysis
+     regression tests to CI. Include units, missing values, date coverage,
+     entity matching, deduplication, metric denominators, reproducibility,
+     and consistency with known cases. Verify paid-access boundaries in CI.
      Visual changes require the applicable accessibility and browser checks.
    - Preserve separate PR and stable-release verification. PRs merge on their
      applicable head checks. Expensive Nightly quality runs belong to the
@@ -1020,14 +1089,15 @@ covered once, in the Issue-first section.
   Cloudflare hosts the static output; do not move verification or builds to a
   Cloudflare-hosted build service to bypass the self-hosted execution policy.
 - Verify a preview before production publication. Check affected routes, mobile
-  layouts, chart controls, accessibility, data loading, source citations, and
-  displayed model assumptions. Record the preview URL and source revision.
+  layouts, chart controls, accessibility, data loading, source citations,
+  metric definitions, and paid-access boundaries. Record the preview URL and
+  source revision.
 - Follow the user's production-deployment authorization and the configured
   release policy. Keep preview and production targets explicit, keep tokens in
   secret stores, and retain a known working deployment for rollback.
 - Confirm the production URL, deployed revision, and affected behavior after
   publication. Distinguish implementation, CI verification, merge, and deployment
   in status reports; none alone proves that a later stage is complete.
-- Revalidate and regenerate outputs when datasets, dependencies, or model
-  assumptions change. Identify input/model versions and update dates in the
-  published site; never silently replace results or hide uncertainty.
+- Revalidate and regenerate outputs when datasets, dependencies, matching rules,
+  or metric definitions change. Identify input/analysis versions and update
+  dates in the published site; never silently replace results or hide uncertainty.
