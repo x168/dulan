@@ -34,9 +34,9 @@ Use the [official ASD-STE100 specification](https://www.asd-ste100.org/assets/fi
 These instructions require its writing style.
 Claim full compliance only after review against the complete specification.
 
-This file is the canonical set of agent rules for this repository, adapted
-from `/home/shawn/daan/AGENTS.md`. Preserve the source's engineering, SDLC,
-collaboration, CI, operations, and safety policies.
+This file is the canonical set of agent rules for this repository.
+It is adapted from `/home/shawn/daan/AGENTS.md`.
+Preserve the source's engineering, SDLC, collaboration, CI, operations, and safety policies.
 
 ## Documentation boundaries
 
@@ -54,7 +54,8 @@ Apply the ASD-STE100 section to internal documents.
 Use Traditional Chinese for public, human-facing content unless the user requests another language.
 
 `CLAUDE.md` must import this file when Claude support is added.
-`docs/CONTRIBUTING.md` must link to these rules without adding or duplicating them.
+`docs/CONTRIBUTING.md` must provide a Traditional Chinese overview that links to these rules.
+Do not add or duplicate agent rules there.
 When another document conflicts with these agent rules, follow this file.
 Open an Issue for the conflict.
 Product documents remain authoritative for product decisions.
@@ -126,7 +127,7 @@ mechanical system limitations.
    cryptic failures.
 5. **Constructive safeguards over punitive failure:**
    Boundary validations, guard rails, and safety gates exist to protect
-   source data, analysis integrity, published results, and deployment state from
+   source data, model integrity, published results, and deployment state from
    catastrophic error—not
    to set traps that penalize legitimate preparation or operational setup.
    Safety checks must provide constructive paths forward (such as safe standby
@@ -318,7 +319,7 @@ The first run only prepares a draft; fill and review it, truthfully check the de
 then repeat the command. Never use `--fill`, inline `--body`, or a heredoc.
 
 The completed body states purpose and scope, workstation review, known limits and blockers,
-and artifact locations for data, analysis or deployment changes. It retains `## 變更摘要`,
+and artifact locations for data, model, analysis or deployment changes. It retains `## 變更摘要`,
 `## 驗證` and `## 風險與後續工作`; the first and third have visible content, and all
 three canonical declarations under `## 驗證` are checked `- [x]` only when true. CI result
 checklists do not belong in the body: GitHub checks for the head are their sole authority.
@@ -342,11 +343,10 @@ label as its own `--label` option on the same `gh issue create` command:
   label. `P2` is the normal planned-work default; reserve `P0` for immediate
   protection of people, assets or delivery, `P1` for important near-term work,
   and `P3` for useful work with no near-term dependency.
-- `risk:high` when the owned scope touches data correctness, public output,
-  access control, credentials or production deployment. It marks
-  what a reviewer, and the daily release round that owns
-  Nightly runtime quality since #598, have to look at hardest; it no longer
-  requires a per-pull-request gate of its own.
+- Apply `risk:high` when scope touches data interpretation, data correctness, models, analysis logic, public output, access control, credentials, or production deployment.
+  This label identifies areas that require close review.
+  The daily release round owns Nightly runtime quality since #598.
+  This label does not require a separate per-pull-request gate.
 - `type:epic` on an umbrella Issue. An epic owns no code scope of its own and
   tracks its parts as GitHub sub-issues, never as a checklist in its body.
 - `blocked:external` when the recorded Blocker state is an unmet external or
@@ -600,15 +600,17 @@ order. Do not start step N before step N-1 is actually done.
      unexecuted check passed. A build over an edited tree is not evidence for the
      pull-request revision.
    - Static web: generate deployment assets in self-hosted CI, with an
-     artifact tied to the exact source revision and data/analysis versions.
+     artifact tied to the exact source revision and data/model/analysis versions.
      Retrieve and commit the generated deployable files from that CI artifact,
      and require a committed-output drift check, preserving the source policy.
      Never substitute a workstation build or claim an
      artifact exists without verifying the run and revision that produced it.
-   - Data and analysis changes: add meaningful source-data validation and analysis
-     regression tests to CI. Derive cases and acceptance criteria from the
-     approved requirements. Record versions and verify reproducibility and
-     consistency with known cases. Verify applicable access-control boundaries.
+   - For data, model, or analysis changes, add meaningful source-data validation and regression tests to CI.
+     Derive cases and acceptance criteria from the approved requirements.
+     Include units, missing values, coverage, assumptions, and known cases when applicable.
+     Record the input, model, and analysis versions.
+     Verify reproducibility and consistency with known cases.
+     Verify applicable access-control boundaries.
      Visual changes require the applicable accessibility and browser checks.
    - Preserve separate PR and stable-release verification. PRs merge on their
      applicable head checks. Expensive Nightly quality runs belong to the
@@ -986,8 +988,10 @@ covered once, in the Issue-first section.
 - Confirm the production URL, deployed revision, and affected behavior after
   publication. Distinguish implementation, CI verification, merge, and deployment
   in status reports; none alone proves that a later stage is complete.
-- Revalidate and regenerate affected artifacts when inputs, dependencies,
-  processing logic, or requirements change. Record artifact and input versions,
-  dates, and remaining limitations in the release evidence.
+- When inputs, dependencies, processing logic, or requirements change, revalidate affected artifacts.
+  Regenerate those artifacts from the verified inputs.
+  Record input, model, analysis, and artifact versions in the release evidence.
+  Record dates and remaining limitations there.
+  Do not silently replace published results or hide material uncertainty.
 - Keep credentials and private material out of version control, public artifacts,
   and logs. Keep secrets in the configured secret stores.

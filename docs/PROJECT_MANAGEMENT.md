@@ -1,30 +1,56 @@
-# 專案方向與階段決策
+# Project direction and delivery evidence
 
-## 方向依據
+## Direction decisions
 
-2026-10-25，使用者要求將 dulan 改為「台灣公共資金流向戰情室」，並嘗試不使用個人化功能。採用熱門公共議題免費、一般實體深度分析訂閱、結構化匯出單次付費的商業假設。[商業計畫](BUSINESS_PLAN.md) 記錄商業模式與定價，[產品需求](PRODUCT_REQUIREMENTS.md) 定義產品行為、資料語意、介面及架構。
+On 2026-10-25, the user selected Taiwan Public Funds Intelligence with no personalized product features.
+The business hypothesis combines free public topics, subscriptions for deeper research, and separately purchased structured exports.
+The [business plan](BUSINESS_PLAN.md) records that model and its price hypotheses.
+The [product requirements](PRODUCT_REQUIREMENTS.md) define behavior, data meanings, interfaces, and architecture.
 
-依使用者後續修正，產品原則不放在 [AGENTS.md](../AGENTS.md)。該檔只承載代理工作與通用工程流程，以及產品文件索引。
+On 2026-10-27, the user approved organization references, procurement, and central enterprise grants as first priorities.
+A selected local enterprise-grant pilot follows central ingestion.
+Other organization grants remain incidental to the approved inputs.
+Loan and guarantee work covers incidental public programme metadata only.
+Government investment and tax-benefit ingestion are outside the first release.
 
-此方向取代原生育推估及先前民調歷史回顧的產品定位。舊 Issue、分支與證據保留其歷史意義，不能當作本產品資料或交付證據。不同任務的擁有權仍依原規則處理。
+Product principles remain separate from [AGENTS.md](../AGENTS.md), which defines agent rules and engineering workflows.
+Internal documentation uses English ASD-STE100 style.
+Public content and interface text use Traditional Chinese.
+This direction replaces the earlier fertility-projection and historical-polling directions.
+Old Issues and source branches retain historical meaning; they are not evidence of public-funds product delivery.
 
-## 階段與退出證據
+## Delivery stages
 
-以下階段直接對應本次定位修訂與計畫中的首版驗證，不設定未經同意的上市日期。里程碑是交付界線；其存在或 Issue 全部關閉，不代表已通過驗收。
+The user requested numbered milestones on 2026-10-27.
+[DELIVERY_STAGES.md](DELIVERY_STAGES.md) defines the six stage outcomes and their exit evidence.
+It is the single stage-definition document.
+Native Issue dependencies determine ordering within and across those stages.
 
-| 階段 | 退出時應存在的事實與證據 |
-| --- | --- |
-| [公共資金情報專案定位](https://github.com/x168/dulan/milestone/2) | 領域規範、非個人化範圍、金額語意、價格假設與來源依據一致；適用的 PR 契約與自架驗證通過，定位修訂已合併至預設分支 |
-| [非個人化公共資金 MVP 驗證](https://github.com/x168/dulan/milestone/3) | 已驗證來源與資料版本、可用預覽、公開／付費權限隔離、交易測試及可存取性證據；市場測試有預先定義的條件與結果，足以記錄採納或調整決策 |
+A milestone's existence does not prove that a stage is open or complete.
+Closed Issues alone do not prove stage acceptance.
+Stage decisions require the reviewed revision and the applicable source, artifact, service, or commercial evidence.
+Market tests can support an adopt, revise, or stop decision.
+Funding announcements, page views, and unpaid interest do not substitute for purchasing and retention evidence.
+Production publication and live charging require their applicable authorization and release evidence.
 
-MVP 的商業測試可以得出不成立或需要修改的結論，不以融資案例、瀏覽量或未付款的意願取代成交與留存證據。生產發布需另有明確授權及對應版本的發布驗證。
+## Verified repository baseline
 
-## 已確認的儲存庫基準
+The verified integration base is main revision `7b556de1912c5b9e6e65665ea22b002f165be05a`.
+It includes the ASD-STE100 policy, PR template, contract parser, self-hosted documentation workflow, and numbered stage document.
+[PR #11](https://github.com/x168/dulan/pull/11) delivered the verification facilities.
+[PR #5](https://github.com/x168/dulan/pull/5) delivered the original documentation policy.
+[PR #34](https://github.com/x168/dulan/pull/34) delivered the stage definitions.
+[PR #36](https://github.com/x168/dulan/pull/36) recorded removal of the old milestone while preserving its Issue records.
 
-本次調查時，遠端預設分支為 `main`，基準 revision 為 `de92b820b59f4e933215811a08c9ae29a9963d67`，追蹤內容僅有 `AGENTS.md`。GitHub 回報 Actions workflow 數為零；沒有網站程式、資料資產、PR 範本、契約 parser 或部署設定。這是調查時的基準事實，後續驗收需讀取當時的實際 revision 與 GitHub 狀態。
+The product-source branch contains the original policy commit and product documents.
+[Issue #37](https://github.com/x168/dulan/issues/37) records their integration without rewriting the source commits.
+Document delivery does not establish a working website, validated raw datasets, payment services, or a verified deployment.
+Unverified nationwide or ten-year coverage remains a research target.
 
-文件修訂、可執行產品、自架 CI 驗證、合併與部署是不同交付事實。尚未執行的檢查不記為通過；未驗證的全國／十年覆蓋不記為產品能力。
+## Record ownership
 
-## 工作追蹤
-
-[GitHub Issues](https://github.com/x168/dulan/issues) 是唯一工作佇列。任務範圍、分類、依賴、阻擋與進度由 Issue 及 GitHub 原生關係承載。本文件只記錄方向、階段判準與持久證據；[定位修訂 #6](https://github.com/x168/dulan/issues/6) 連結相關後續工作。
+[GitHub Issues](https://github.com/x168/dulan/issues) are the sole work queue.
+Issues and native relationships own scope, classification, dependencies, blockers, milestones, and lifecycle.
+This document records direction decisions and durable repository facts.
+[Issue #6](https://github.com/x168/dulan/issues/6) records the original document-delivery scope.
+Epics [#14](https://github.com/x168/dulan/issues/14), [#15](https://github.com/x168/dulan/issues/15), [#16](https://github.com/x168/dulan/issues/16), [#17](https://github.com/x168/dulan/issues/17), and [#18](https://github.com/x168/dulan/issues/18) own subsequent product delivery.

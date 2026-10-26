@@ -1,97 +1,185 @@
-# 台灣公共資金流向戰情室：產品需求
+# Taiwan Public Funds Intelligence: product requirements
 
-本文件定義產品行為、資料語意、介面與架構要求；[商業計畫](BUSINESS_PLAN.md) 說明商業定位、定價及市場假設。[AGENTS.md](../AGENTS.md) 管理代理工作與通用工程流程，不承載產品原則。
+This document defines product behavior, data meanings, interfaces, and architecture.
+The [business plan](BUSINESS_PLAN.md) defines the business model and price hypotheses.
+[AGENTS.md](../AGENTS.md) defines agent rules and engineering workflows.
+These requirements describe a target product, not delivered features or verified data coverage.
 
-以下描述目標產品，不代表功能、資料覆蓋、交易服務或部署已完成。文件分工的調整保留原有產品要求。
+## Terms
 
-## 一、產品範圍
+- An organization is a company, business, association, foundation, or another registered body.
+- An organization identifier is an official registration number, such as a Taiwan Unified Business Number.
+- A source record is a published record before product transformations.
+- A derived record is an output from versioned matching, correction, or calculation rules.
+- A grant approval is an approved award, not evidence that money was paid.
+- A programme is a public funding scheme with published rules.
+- An application programming interface, or API, permits software access to a service.
+- A Sankey chart uses connected bands to show quantities between categories.
 
-產品整合台灣政府採購決標與中央、地方機關對民間組織的補助，服務研究政府市場的企業，並提供記者與一般讀者公開查詢。政府是情報研究對象，尚未假定為付費採購客戶。
+## Approved scope and priority
 
-首版提供統編或關鍵字搜尋、企業與團體頁、機關／產業／年度篩選、公開熱門專題、歷史分析及結構化匯出。價格、需求、轉換率、營運成本與十年覆蓋均屬待驗證假設，不能宣稱已成立。
+The approved planning baseline is recorded in [Issue #6](https://github.com/x168/dulan/issues/6) on 2026-10-27, Asia/Taipei.
+First priority includes organization and agency references, procurement intelligence, and central enterprise grants.
+Second priority is one explicitly selected local enterprise-grant pilot after central ingestion.
+Other organization grants are incidental records from the same approved inputs.
+Loan and credit-guarantee coverage is limited to incidental public programme metadata.
+Government investment and tax-benefit ingestion are outside the first release.
 
-來源取得方式、授權、實際涵蓋期間、實體對應與指標定義須先確認，才有可公開或出售的資料範圍。不假定全國完整涵蓋、十個完整年度或既有正式部署。
+Prioritize enterprise research, transformation, equipment, and related business programmes.
+Keep company, association, foundation, and unresolved organization identities distinct.
+Retain grant, donation, award, interest-support, and payment classifications from the source.
+Do not expand the first release into nationwide welfare or activity-grant collection.
+Do not collect personal recipient directories.
 
-## 二、非個人化範圍
+The product supports businesses that research government markets.
+Journalists and general readers can use public-topic pages.
+Government is a research subject, not an assumed paying customer.
+Source access, licences, actual years, organization matching, and metrics require verification before publication or sale.
+Nationwide coverage, ten complete years, customer demand, and low operating costs remain unverified.
 
-- 同一資料版本、熱門規則與存取權限下，所有訪客使用相同搜尋、排序、專題選擇及內容。
-- 首版不含儲存搜尋、收藏、監控名單、個人推薦、個人通知、CRM 串接或私人企劃書上傳。
-- 不提供原提案的五個實體監控加購方案。
-- 交易與授權紀錄可支援購買及取回內容，不延伸成行為輪廓。必要收據與交付通知不作為商機推薦。
+## Search and shared behavior
 
-## 三、公開與付費內容
+Provide searches by organization identifier, organization name, or keyword.
+Provide organization pages and agency, industry, and year filters.
+Provide shared public topics, historical analysis, comparisons, and structured exports.
+Give visitors with the same data version and access rights the same results.
+Use the same topic rules and ordering rules for those visitors.
 
-- 熱門實體採公開且一致的公共議題標準與彙總訊號選取，記錄依據、來源、選入時間、審核與到期規則。
-- 熱門實體在已驗證範圍內的完整可公開分析免登入開放。免費與付費內容適用相同的來源、隱私及品質要求。
-- 其他實體免費提供當年度基本紀錄及資料截至日；歷史分析與比較由訂閱解鎖。
-- 整理好的大宗匯出於首版另行計費，未訂閱者也能單次購買。訂閱與匯出權益依商業計畫明確界定，不另行假定尊榮方案。
-- 結帳前顯示可用年份、欄位、筆數、缺漏、資料版本與交付範圍。缺資料時清楚呈現，不以不存在的分析誘導付款。
-- 熱門或取得公共資金不代表涉案或違法；專題名稱及排序不能製造這種暗示。
-- 已公開資訊可以被複製。商品價值在清理、追溯、比較及便利匯出，不能承諾阻止所有免費資料複製。
+Exclude saved searches, favorites, watchlists, personal recommendations, personal notifications, customer-system connections, and private proposal uploads.
+Exclude the earlier five-organization monitoring add-on.
+Keep necessary transaction and access records for purchases and retrieval.
+Do not turn transaction records into behavioral profiles.
+Use necessary receipts and delivery notices only for their transaction purpose.
 
-付費權限在伺服器端執行。未授權資料不能出現在公開 JSON、HTML、JavaScript、source map、靜態產物或公共快取中；模糊圖表只是預覽，不是權限保護。匯出儲存空間保持私有。
+## Public topics and paid access
 
-每次提供受限資料或下載前，均需確認交易與購買權限，避免跨使用者快取洩漏；到期或退款後失效的權限不能繼續取用。已公開專題的保存及免費期間依商業計畫處理。
+Select public topics through shared public-interest rules and aggregate signals.
+Record each topic's basis, sources, selection time, review, policy version, and expiry rules.
+Verify organization identity before opening a topic.
+Do not set an unverified automatic traffic threshold.
+Do not choose free content from individual browsing histories.
 
-## 四、資料來源與處理
+Provide complete publishable topic analysis without login within verified coverage.
+For other organizations, provide free current-year basic records, source references, coverage, and the data cutoff date.
+Unlock available historical analysis and comparisons through a subscription.
+Sell prepared bulk exports separately, including to visitors without a subscription.
+Apply the same source, privacy, and quality requirements to free and paid content.
+Keep dated public-topic snapshots, source references, and correction history available under the published topic policy.
 
-### 來源及版本
+Before checkout, show available years, fields, row counts, missing data, data versions, and delivery scope.
+When identity or data is uncertain, show that condition clearly.
+Do not imply that missing records mean no public funding ever existed.
+Do not sell nonexistent analysis.
+Do not imply wrongdoing from a public-topic label or a public funding record.
+Public information can be copied; payment buys preparation, comparison, traceability, and convenient exports.
 
-- 優先採官方採購公告、補助揭露與其他第一手來源。
-- 每個資料來源記錄 URL、發布機關、發布日期或資料版本、擷取日期、授權、涵蓋範圍、幣別、單位、欄位定義與更新頻率。
-- 原始檔、標準化紀錄及衍生分析分開保存；輸入、轉換、實體對應規則及輸出均有版本，可重現處理結果並保留來源更正歷史。
+Enforce paid access on the server.
+Keep restricted records out of public data files, pages, scripts, source maps, static outputs, and public caches.
+Treat a blurred chart only as a preview.
+Keep export storage private.
+Before each restricted response or download, verify the transaction and current access rights.
+Isolate cached responses between access rights.
+After expiry or refund removes access, reject further restricted retrieval.
 
-### 金額與時間
+## Sources and reproducibility
 
-- 分別保存採購預算、投標價格、決標金額、補助核定額與實際支付額。決標或核定不等於收款，合約總額也不等於年度或已認列營收。
-- 公告日、決標日、核准日、付款日及履約期間分開保存，年度圖表說明採用哪一種日期。
-- 標示部分年度、已觀察範圍及缺漏；缺年不補零，不宣稱尚未驗證的歷史覆蓋。
-- 有來源支持的負數調整保留其意義，不因金額為負就刪除。
+Prefer official announcements, official grant disclosures, and other primary sources.
+For each dataset, record its URL, publisher, publication date or version, retrieval date, licence, format, and update frequency.
+Record its geography, actual years, currency, units, field definitions, and known gaps.
+Keep raw inputs, normalized records, and derived analysis separate.
+Version inputs, transformations, identity rules, corrections, and outputs.
+Preserve correction history and make preparation reproducible.
 
-### 實體及重複紀錄
+## Amounts, dates, and corrections
 
-- 優先以組織識別碼對應，保留來源名稱及別名；明確處理缺少識別碼、更名及有歧義的對應，不能只因名稱相近就合併。
-- 分開公告、契約、標項、得標者與修正紀錄；複數決標、撤銷、退款及累計補助不能重複計算。
-- 採購與補助的金額意義及可能重複尚未釐清前，不相加為一個總收款數字。
-- 首版資料以組織為主，不建立個人補助受領名冊，也不公開私人聯絡資料。
+Keep procurement budgets, bid prices, award amounts, grant approvals, cumulative disbursements, and verified payments separate.
+Do not treat an award or approval as cash received.
+Do not treat a contract total as annual or recognized revenue.
+Keep announcement, award, approval, payment, and performance dates separate.
+Explain the date basis of each annual view.
+Show partial years, observed coverage, and missing years.
+Do not fill missing years with zero.
+Retain supported negative adjustments with their source meaning.
 
-## 五、分析與公開敘事
+Keep announcements, contracts, lots, suppliers, amendments, and cancellations distinct.
+Handle multiple awards, withdrawals, refunds, and cumulative grant amounts without double counting.
+Until meanings and duplicate funding are resolved, do not add procurement and grant amounts into one cash-received total.
 
-- 分開標示來源事實、計算統計與預測。每個指標說明公式、分母、比較群組、樣本數與缺值處理。
-- 決標金額與預算金額的比值，只適用於相同範圍、相容幣別且金額為正的紀錄；不能當成落標出價、利潤或保證得標的建議價格。
-- 勝率需要包含落標在內、可驗證的有效投標分母。只有決標公告時，顯示得標件數，隱藏沒有依據的勝率。
-- 顯示重大不確定性及覆蓋限制，不使用無依據的精度。估計範圍不能標成統計信賴區間，除非有可說明的統計方法。
-- 競業研究使用機關分布及有來源的決標模式。不能從共同出現或金額推論個別評委偏好、政治關係、貪腐或未公開的人際關係；首版不建立個人評委輪廓。
-- 公開合約期限只能支持有日期的商機假設，不能保證續約、重新招標、新補助或未來預算。官方公告與推估週期分開標示。
-- 網絡圖及桑基圖每條連線都說明來源支持的關係與金額類型；決標關係不代表款項已經移轉。
-- 公開專題使用中性標題及可查核證據，區分指控、正式認定及更正，並提供更正管道。熱門標籤不能暗示有罪，也不能捏造聳動排名。
+## Organization identity
 
-## 六、介面與可存取性
+Prefer official organization identifiers for matching.
+Retain source names and aliases.
+Handle missing identifiers, name changes, and ambiguous matches explicitly.
+Do not merge organizations only because their names are similar.
+Keep uncertain matches visible.
+Do not publish private contact details or personal recipient lists.
 
-- 介面文案使用繁體中文；指標名稱、單位、操作方式及假設都有清楚說明。
-- 圖表與導覽支援鍵盤、行動裝置及響應式呈現；不僅依靠顏色區分資金類型或資料類別。
-- 圖表提供表格替代，包含桑基圖及網絡圖。缺值與零在顯示上能區分。
-- 來源、資料日期、涵蓋範圍、排除項目、定義、限制及更正歷史在結果附近可找到。
-- 公開專題免登入，付費內容與匯出條件在付款前清楚可見。
+## Analysis and public descriptions
 
-## 七、架構與交付設定
+Distinguish source facts, calculated statistics, and forecasts.
+For each metric, explain its formula, denominator, comparison group, sample size, and missing-value handling.
+Use award-to-budget ratios only for compatible scope and currency with positive amounts.
+Do not interpret that ratio as a losing bid, profit, or a guaranteed winning price.
+Show winning rates only with a verified denominator that includes valid unsuccessful bids.
+When only award announcements exist, show award counts and omit unsupported winning rates.
 
-公開頁面以靜態 HTML、CSS、JavaScript 及有版本的公開資料為主，預先計算昂貴的資料合併與彙總，瀏覽器下載量與相依套件維持合理規模。目標使用 Cloudflare 靜態託管。
+Group comparable cases by procurement category, method, period, and scope.
+Show the distribution and sample size.
+Do not draw strategy conclusions from sparse or incompatible cases.
+Show material uncertainty and coverage limits without unsupported precision.
+Use confidence-interval labels only with a stated statistical basis.
 
-支付驗證、購買權限、受限查詢與授權下載由最小必要的伺服器端服務提供。實際 Cloudflare 產品及支付服務在實作時選定；不假定帳號、服務或環境已備妥。
+Use source-supported agency distributions and award patterns for competitor research.
+Do not infer evaluator preferences, political ties, corruption, or private relationships from co-occurrence or amounts.
+Exclude personal evaluator profiles.
+Treat published contract expiry as a dated opportunity hypothesis, not a promised renewal or future budget.
+Keep official announcements separate from estimated cycles.
+Explain the supported relationship and amount type for every network or Sankey-chart link.
+Do not describe an award relationship as a completed payment.
 
-設定確定後，記錄建置命令、產物位置、輸出目錄、公開與私有資料邊界及部署設定。瀏覽器資產皆為公開內容，不能包含憑證、部署 token、交易紀錄、私人資料或受限商業資料。
+Use neutral topic titles and verifiable evidence.
+Distinguish allegations, official findings, and corrections.
+Provide a correction channel.
 
-預覽與正式環境有明確目的地及版本識別，交付前可檢查產物及存取權限，並保留可回復的工作版本。產品頁面顯示所用輸入／分析版本與更新日期，資料變動不應靜默覆蓋歷史結果或隱藏不確定性。
+## Interface and accessibility
 
-## 八、產品驗收涵蓋範圍
+Use Traditional Chinese interface text.
+Explain metrics, units, controls, assumptions, and data cutoff dates.
+Support keyboard use, mobile devices, and responsive layouts.
+Do not use color alone to distinguish amounts or categories.
+Provide table alternatives for all charts, including network and Sankey charts.
+Keep missing values visibly different from zero.
+Place sources, coverage, exclusions, definitions, limitations, and corrections near the results.
+Show access and export terms before payment.
 
-| 範圍 | 必須涵蓋的產品行為與資料條件 |
+## Architecture and delivery
+
+Use static pages, styles, scripts, and versioned public data for public content.
+Precompute expensive joins and summaries when practical.
+Keep browser downloads and dependencies proportional to the product.
+Cloudflare static hosting is the target, not an existing verified deployment.
+Use only the server services necessary for payment verification, access rights, restricted queries, and authorized downloads.
+Select and verify actual Cloudflare products and payment services during implementation.
+Do not assume that accounts, services, or destinations already exist.
+
+When choices are made, record build commands, output locations, deployment settings, and public/private data boundaries.
+Keep credentials, tokens, transaction records, private material, and restricted business records out of public assets.
+Identify preview and production destinations and source revisions.
+Verify the exact delivery artifact and access behavior before publication.
+Keep a known working revision for recovery.
+Show input versions, analysis versions, and update dates.
+Preserve material historical changes and uncertainty when data changes.
+
+## Product acceptance coverage
+
+| Area | Required evidence |
 | --- | --- |
-| 資料品質 | 識別碼、日期與年份覆蓋、單位、缺值、重複、合理金額、原始總額對照及重大差異說明 |
-| 分析重現 | 實體對應、去重、指標分母、輸入與規則版本、已知案例及重現結果 |
-| 付費邊界 | 免費／訂閱／單次匯出的權益、未授權資料不外流、快取隔離、到期或退款失效 |
-| 使用體驗 | 受影響頁面、手機版、鍵盤與圖表操作、表格替代、資料載入、來源引用及指標定義 |
-| 發布內容 | 預覽與實際交付版本一致，輸入／分析版本與更新日期可查，修正及限制可見 |
+| Source quality | Identifiers, dates, actual years, units, missing values, duplicates, amount constraints, source totals, and explained discrepancies |
+| Reproducibility | Identity rules, corrections, deduplication, denominators, input versions, rule versions, known cases, and repeatable outputs |
+| Access | Free, subscription, and export rights; restricted-data isolation; private storage; cache separation; expiry and refund behavior |
+| Usability | Affected pages, mobile use, keyboard use, chart controls, table alternatives, data loading, source references, and metric definitions |
+| Publication | Matching preview and delivery artifacts, exact revision, input and analysis versions, update dates, visible corrections, and limitations |
 
-驗證的執行位置、PR 門檻與發布流程由 AGENTS.md 管理。本文件不取代那些代理工作規則，也不宣稱上述驗收已通過。
+Engineering execution locations and release gates remain defined in AGENTS.md.
+The [delivery stages](DELIVERY_STAGES.md) define stage outcomes and exit evidence.
+These requirements do not establish that any product acceptance check has passed.
