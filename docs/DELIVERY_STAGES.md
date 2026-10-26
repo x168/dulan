@@ -43,7 +43,8 @@ Missing evidence keeps the applicable gate open.
 
 This planning decision establishes no product-stage completion.
 It sets no deadline and authorizes no production publication or live charging.
-The historical-review milestone remains separate from these public-funds stages.
+The historical-review milestone was removed at the user's request.
+Its seven Issue records retain their content and lifecycle states under stage 1.
 
 ## Record ownership
 
