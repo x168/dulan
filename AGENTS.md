@@ -6,6 +6,8 @@ Use ASD-STE100 Simplified Technical English style for all internal documentation
 Write this documentation in English.
 This rule applies to instructions, policies, prompts, runbooks, engineering notes, task briefs, templates, reference material, and evidence summaries.
 It applies to internal documents for people and agents, in every file format.
+Operations runbooks, engineering plans, and internal product requirements are internal documentation.
+Use English for these documents, including documents read only by humans.
 This rule takes priority over other language rules for internal documentation.
 Keep the existing language rules for public content and product interfaces.
 
@@ -34,13 +36,28 @@ Claim full compliance only after review against the complete specification.
 
 This file is the canonical set of agent rules for this repository, adapted
 from `/home/shawn/daan/AGENTS.md`. Preserve the source's engineering, SDLC,
-collaboration, CI, operations, and safety policies. Only its trading business
-logic is replaced by this project's birth and fertility projection requirements.
+collaboration, CI, operations, and safety policies.
+
+## Documentation boundaries
+
+This file defines agent behavior and general engineering workflows only.
+Keep product principles, business models, feature scope, interface behavior,
+data semantics, and product architecture in product documents.
+Do not copy those requirements into agent instructions.
+
+Use [README.md](README.md) as the project overview and document index.
+Read [docs/BUSINESS_PLAN.md](docs/BUSINESS_PLAN.md) for business decisions.
+Read [docs/PRODUCT_REQUIREMENTS.md](docs/PRODUCT_REQUIREMENTS.md) for product requirements.
+Read [docs/PROJECT_MANAGEMENT.md](docs/PROJECT_MANAGEMENT.md) for stage decisions and evidence.
+Use those documents to understand the task's requirements, not to define agent operating rules.
+Apply the ASD-STE100 section to internal documents.
+Use Traditional Chinese for public, human-facing content unless the user requests another language.
 
 `CLAUDE.md` must import this file when Claude support is added.
-`docs/CONTRIBUTING.md` must be a Chinese overview linking to these rules,
-without adding or duplicating agent rules. When human documentation conflicts
-with this file, follow this file and open an Issue for the conflict.
+`docs/CONTRIBUTING.md` must link to these rules without adding or duplicating them.
+When another document conflicts with these agent rules, follow this file.
+Open an Issue for the conflict.
+Product documents remain authoritative for product decisions.
 
 ### Ported infrastructure requirements and current availability
 
@@ -69,63 +86,6 @@ and the shared Project URL are inherited infrastructure references: verify
 actual provisioning and repository linkage before using them. Preserve their
 isolation, routing, budget, and authorization contracts when provisioning dulan.
 Do not claim source-repository settings are verified settings of this repository.
-
-## Project scope
-
-Build a static website presenting birth and fertility projections for the next
-50 years, deployed on Cloudflare. Geographic coverage, baseline year, source
-datasets, and projection methodology must be established before publishing
-numerical results; do not silently assume them.
-
-This file is the canonical source of agent rules for this repository. Keep
-agent instructions in English and human-facing documentation and interface
-copy in Traditional Chinese unless the user requests another language.
-
-## Website usability
-
-- Make charts and navigation accessible, responsive, and usable with a keyboard.
-  Do not rely on color alone to distinguish scenarios or data categories.
-- Explain metric names, units, chart controls, and assumptions in Traditional
-  Chinese. Missing data must remain distinguishable from zero.
-
-## Data integrity and projection transparency
-
-- Prefer official statistics and primary sources. Record the source URL,
-  publisher, dataset version or publication date, retrieval date, geographic
-  coverage, units, and relevant definitions for every dataset.
-- Distinguish observed data, published projections, and this project's modeled
-  results in both the data and the interface. Never present a scenario as a
-  certain future or fabricate missing observations.
-- Define birth counts, fertility rates, and population measures separately;
-  do not substitute one metric for another.
-- State the baseline year, projection horizon, model, and assumptions. Clearly
-  identify the 50-year projection window and the last observed year.
-- Explain how fertility, mortality, migration, and population age structure
-  enter the model when applicable. Document omitted factors and limitations.
-- Make uncertainty visible through clearly labeled scenarios or supported
-  intervals. Do not label scenario ranges as statistical confidence intervals
-  without a statistical basis. Avoid unsupported numerical precision.
-- Keep raw inputs separate from derived outputs. Make data preparation and
-  projection generation reproducible, and record the input and model versions
-  used to produce published results.
-- Verify year coverage, units, missing values, duplicates, and domain constraints
-  before publishing. Explain material discrepancies with source statistics.
-- Display data provenance, assumptions, limitations, and update dates where
-  readers can find them alongside the results.
-
-## Static website and Cloudflare deployment
-
-- Prefer static HTML, CSS, JavaScript, and versioned data assets. Add a runtime
-  backend or external service only when a concrete requirement justifies it.
-- Keep the site compatible with the selected Cloudflare static hosting setup.
-  Document its build command, output directory, and deployment configuration
-  when those choices are made; do not assume an existing deployment exists.
-- Precompute expensive data transformations and projections when practical.
-  Keep browser downloads and dependencies proportional to the site's needs.
-- Never embed credentials, deployment tokens, personal data, or private source
-  material in repository files or public assets. Browser assets are public.
-- Keep preview and production destinations identifiable. Verify the generated
-  site before deployment, and retain a known working revision for rollback.
 
 ## Human-centric operational and engineering design principles
 
@@ -166,21 +126,18 @@ mechanical system limitations.
    cryptic failures.
 5. **Constructive safeguards over punitive failure:**
    Boundary validations, guard rails, and safety gates exist to protect
-   source data, model integrity, published results, and deployment state from
+   source data, analysis integrity, published results, and deployment state from
    catastrophic error—not
    to set traps that penalize legitimate preparation or operational setup.
    Safety checks must provide constructive paths forward (such as safe standby
    modes, graceful degradation, or actionable guidance) rather than treating
    out-of-bounds inputs with crude termination or unhandled exceptions.
-6. **Agent documentation language:**
-   All instruction files, rules, and guidelines intended for agent consumption
-   must be written in English. The canonical agent documents are `AGENTS.md`,
-   `.github/ISSUE_TEMPLATE/agent-task.yml`, and any future `docs/agents/`
-   files. Human-facing documents—including `docs/`, operations runbooks, and
-   the pull-request template—must be written in Chinese. Agents may consult
-   those human documents as evidence or operator context, but must not depend
-   on them for agent operating rules; put every such rule in an English
-   canonical agent document.
+6. **Documentation language and authority:**
+   Apply the ASD-STE100 section to internal documentation.
+   The canonical agent documents are `AGENTS.md`,
+   `.github/ISSUE_TEMPLATE/agent-task.yml`, and any future `docs/agents/` files.
+   Agents may consult other documents for requirements, evidence, and operator context.
+   Keep agent operating rules in the canonical agent documents.
 
 ## GitHub event-history lookup
 
@@ -361,7 +318,7 @@ The first run only prepares a draft; fill and review it, truthfully check the de
 then repeat the command. Never use `--fill`, inline `--body`, or a heredoc.
 
 The completed body states purpose and scope, workstation review, known limits and blockers,
-and artifact locations for data, model or deployment changes. It retains `## 變更摘要`,
+and artifact locations for data, analysis or deployment changes. It retains `## 變更摘要`,
 `## 驗證` and `## 風險與後續工作`; the first and third have visible content, and all
 three canonical declarations under `## 驗證` are checked `- [x]` only when true. CI result
 checklists do not belong in the body: GitHub checks for the head are their sole authority.
@@ -385,9 +342,9 @@ label as its own `--label` option on the same `gh issue create` command:
   label. `P2` is the normal planned-work default; reserve `P0` for immediate
   protection of people, assets or delivery, `P1` for important near-term work,
   and `P3` for useful work with no near-term dependency.
-- `risk:high` when the owned scope touches data interpretation, projection models,
-  public results, credentials or production deployment. It marks what a reviewer,
-  and the daily release round that owns
+- `risk:high` when the owned scope touches data correctness, public output,
+  access control, credentials or production deployment. It marks
+  what a reviewer, and the daily release round that owns
   Nightly runtime quality since #598, have to look at hardest; it no longer
   requires a per-pull-request gate of its own.
 - `type:epic` on an umbrella Issue. An epic owns no code scope of its own and
@@ -456,9 +413,9 @@ import trading milestones or silently invent a product roadmap.
 
 A milestone existing does not open its stage, and closing every Issue does not
 by itself prove the stage passed. Define and record stage decisions and exit
-evidence in the project-management documentation. Dataset availability,
-validated methodology, accessible presentation, and verified publication are
-examples of gates to define for this project, not claims already satisfied.
+evidence in the project-management documentation. Use the approved requirements
+to define the applicable gates and their evidence. Do not treat a documented
+gate as a claim that its conditions are already satisfied.
 
 All tasks, priorities, dependencies, product-gate work, external/manual blockers,
 portfolio initiatives, technical debt, and follow-ups belong in GitHub Issues.
@@ -643,14 +600,15 @@ order. Do not start step N before step N-1 is actually done.
      unexecuted check passed. A build over an edited tree is not evidence for the
      pull-request revision.
    - Static web: generate deployment assets in self-hosted CI, with an
-     artifact tied to the exact source revision and data/model versions.
+     artifact tied to the exact source revision and data/analysis versions.
      Retrieve and commit the generated deployable files from that CI artifact,
      and require a committed-output drift check, preserving the source policy.
      Never substitute a workstation build or claim an
      artifact exists without verifying the run and revision that produced it.
-   - Data and model changes: add meaningful source-data validation and model
-     regression tests to CI. Include units, missing values, year coverage,
-     scenario assumptions, reproducibility, and consistency with known cases.
+   - Data and analysis changes: add meaningful source-data validation and analysis
+     regression tests to CI. Derive cases and acceptance criteria from the
+     approved requirements. Record versions and verify reproducibility and
+     consistency with known cases. Verify applicable access-control boundaries.
      Visual changes require the applicable accessibility and browser checks.
    - Preserve separate PR and stable-release verification. PRs merge on their
      applicable head checks. Expensive Nightly quality runs belong to the
@@ -1014,20 +972,22 @@ covered once, in the Issue-first section.
   from `\uXXXX`, which silently swaps in simplified forms. Read the file back
   before sending it.
 
-## Cloudflare publication and acceptance
+## Publication and acceptance
 
 - Publish the exact self-hosted CI artifact that passed the release gates.
-  Cloudflare hosts the static output; do not move verification or builds to a
-  Cloudflare-hosted build service to bypass the self-hosted execution policy.
-- Verify a preview before production publication. Check affected routes, mobile
-  layouts, chart controls, accessibility, data loading, source citations, and
-  displayed model assumptions. Record the preview URL and source revision.
+  Do not move verification or builds to a hosting provider's build service
+  to bypass the self-hosted execution policy.
+- Verify a preview before production publication. Check affected behavior
+  against the approved requirements, including applicable accessibility,
+  data, and access-control checks. Record the preview URL and source revision.
 - Follow the user's production-deployment authorization and the configured
   release policy. Keep preview and production targets explicit, keep tokens in
   secret stores, and retain a known working deployment for rollback.
 - Confirm the production URL, deployed revision, and affected behavior after
   publication. Distinguish implementation, CI verification, merge, and deployment
   in status reports; none alone proves that a later stage is complete.
-- Revalidate and regenerate outputs when datasets, dependencies, or model
-  assumptions change. Identify input/model versions and update dates in the
-  published site; never silently replace results or hide uncertainty.
+- Revalidate and regenerate affected artifacts when inputs, dependencies,
+  processing logic, or requirements change. Record artifact and input versions,
+  dates, and remaining limitations in the release evidence.
+- Keep credentials and private material out of version control, public artifacts,
+  and logs. Keep secrets in the configured secret stores.
