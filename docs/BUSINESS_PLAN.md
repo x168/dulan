@@ -108,8 +108,8 @@ Charging is not enabled by this plan.
 | Standalone export | NT$499 per purchase | One confirmed organization or industry query, data version, date range, and Excel detail file |
 
 Prepared exports are sold separately from subscriptions.
-A subscription does not imply unlimited bulk downloads or API access.
 An application programming interface, or API, permits software access to a service.
+A subscription does not imply unlimited bulk downloads or API access.
 The first release has no undefined premium-membership tier.
 Future bundled export allowances require commercial evidence.
 

@@ -343,7 +343,7 @@ label as its own `--label` option on the same `gh issue create` command:
   label. `P2` is the normal planned-work default; reserve `P0` for immediate
   protection of people, assets or delivery, `P1` for important near-term work,
   and `P3` for useful work with no near-term dependency.
-- Apply `risk:high` when scope touches data interpretation, data correctness, models, analysis logic, public output, access control, credentials, or production deployment.
+- When scope touches data interpretation, data correctness, models, analysis logic, public output, access control, credentials, or production deployment, apply `risk:high`.
   This label identifies areas that require close review.
   The daily release round owns Nightly runtime quality since #598.
   This label does not require a separate per-pull-request gate.
