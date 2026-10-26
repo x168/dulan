@@ -27,6 +27,19 @@ Actual years remain subject to source verification.
 The decision preserves central enterprise-grant priority and the later selected local pilot.
 It establishes no working product, proven demand, fixed price, historical period, or commercial success threshold.
 
+On 2026-10-27, the user approved the Google Trends trial policy for free public topics.
+The policy uses daily Taiwan candidates from the previous 24 hours, followed by identity and source-quality review.
+Topics provide seven days of free analysis from publication.
+Published historical snapshots remain free afterward.
+New deep research then follows normal access rules.
+Fixed demonstration topics support industries that rarely appear in trending searches.
+[Issue #42](https://github.com/x168/dulan/issues/42) records this decision.
+The [business plan](BUSINESS_PLAN.md#free-public-topics-and-paid-research) records the policy and official Google references.
+This approval starts no collection, publication, or API application.
+
+The user deferred the remaining policy discussions.
+Further decisions belong to the [access task](https://github.com/x168/dulan/issues/30), [research protocol](https://github.com/x168/dulan/issues/32), and [operating-policy task](https://github.com/x168/dulan/issues/43).
+
 Product principles remain separate from [AGENTS.md](../AGENTS.md), which defines agent rules and engineering workflows.
 Internal documentation uses English ASD-STE100 style.
 Public content and interface text use Traditional Chinese.

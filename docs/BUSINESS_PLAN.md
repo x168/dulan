@@ -75,15 +75,49 @@ No current-year record does not establish that an organization never received pu
 Older records cannot silently replace missing current-year records.
 
 Public-topic selection uses shared public-interest rules, not personal browsing histories.
-News and aggregate search trends can identify candidates.
-Organization identity and source evidence require review before publication.
-The policy records sources, selection reasons, review, effective dates, and its version.
-The first release sets no unverified automatic traffic threshold.
+The user approved the following trial policy on 2026-10-27, Asia/Taipei.
+[Issue #42](https://github.com/x168/dulan/issues/42) records this decision.
+
+Collect Taiwan Google Trends candidates daily using the previous 24 hours of trending searches.
+Select topics related to government procurement or enterprise grants.
+Verify the organization or agency identity before publication.
+Review source evidence and data quality before opening a topic.
+Do not open a company's analysis solely because a related person's name is trending.
+
+Provide the topic's publishable analysis without login for seven days from topic publication.
+Show its publication time, free-period end, source scope, and policy version.
+Give all visitors the same free-topic access.
+Keep published historical snapshots free after that period.
+Apply normal access rules to new deep research added after the free period.
+Prepared exports retain their existing separate purchase rules.
+
+Keep fixed demonstration topics free for industries that rarely appear in trending searches.
+These topics provide a stable introduction to the product's research.
+Record the selection reasons, identity review, source references, data versions, and policy version for each topic.
 A topic label or funding record does not imply misconduct.
 
-Topic pages show their free-access period and policy version.
-Expiry follows the same published rules for all visitors with equal access rights.
-Dated public snapshots keep their source references and corrections.
+Google Trends supplies a candidate signal, not automatic proof of public interest or company identity.
+Google Trends Explore displays relative search interest on a scale from 0 to 100.
+Its scale depends on the selected geography and period.
+Do not set an unverified automatic traffic threshold.
+Do not use an Explore score above 80 as an automatic free-access condition.
+A zero score can reflect insufficient search volume rather than no searches.
+
+An RSS feed is a machine-readable stream of updates.
+An application programming interface, or API, permits software access to a service.
+
+Official Google documentation was retrieved on 2026-10-27:
+
+- [Trending now](https://support.google.com/trends/answer/3076011?hl=en) describes location and time filters, downloadable files, and an RSS feed.
+- [Data definitions](https://support.google.com/trends/answer/4365533?hl=en) explain relative Explore scores and low-volume data limits.
+- [API access](https://developers.google.com/search/apis/trends) describes an alpha application process with limited access.
+
+Assess the official RSS feed first for automated collection.
+Verify actual source access and usage conditions during implementation.
+Do not assume that API access has been granted.
+This record approves policy and does not start collection or publication.
+
+Dated public snapshots retain source references and correction history.
 Already published information can be copied.
 The paid value is cleaning, cross-source comparison, reproducibility, traceability, and convenient exports.
 
@@ -142,7 +176,6 @@ Charging is not enabled by this plan.
 | Standalone export | NT$499 per purchase | One confirmed organization or industry query, data version, date range, and Excel detail file |
 
 Prepared exports are sold separately from subscriptions.
-An application programming interface, or API, permits software access to a service.
 A subscription does not imply unlimited bulk downloads or API access.
 The first release has no undefined premium-membership tier.
 Future bundled export allowances require commercial evidence.
