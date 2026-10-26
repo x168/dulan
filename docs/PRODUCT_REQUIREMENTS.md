@@ -37,6 +37,37 @@ Government is a research subject, not an assumed paying customer.
 Source access, licences, actual years, organization matching, and metrics require verification before publication or sale.
 Nationwide coverage, ten complete years, customer demand, and low operating costs remain unverified.
 
+## Approved first research pilot
+
+The user approved the first customer and purchase task recorded in [Issue #40](https://github.com/x168/dulan/issues/40).
+The first paying audience is small and medium-sized suppliers with experience in government contracts.
+The first validation segment is information technology services and systems integration.
+Primary users are sales leads and bid managers.
+Purchase decision-makers are owners or managers.
+
+The first purchase task supports business development through research on peer contracts, buying agencies, comparable awards, and traceable exports.
+The pilot covers one industry.
+The broader source and grant priorities in this document remain applicable.
+
+Provide organization, agency, and case searches for the pilot.
+Provide historical award comparisons within verified coverage.
+Provide distributions by peer supplier and buying agency with declared metrics.
+Provide Excel case exports with source links and data versions.
+Apply the existing subscription and standalone-export access rules.
+
+Verify the following task with three peer suppliers:
+
+1. Find their government cases within the verified source scope.
+2. Inspect relevant buying agencies and comparable award amounts.
+3. Export a case list with traceable source records and data versions.
+
+Show actual years and unavailable data during this task.
+Do not substitute missing records with invented cases or zero amounts.
+If verified inputs cannot support the task, record the source limitation before claiming pilot acceptance.
+The task does not establish customer demand or commercial success.
+The approval sets no fixed historical period, minimum row count, launch date, or conversion threshold.
+Central enterprise grants retain first grant priority and remain separate from procurement amounts.
+
 ## Search and shared behavior
 
 Provide searches by organization identifier, organization name, or keyword.

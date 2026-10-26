@@ -27,6 +27,40 @@ The commercial hypothesis is that useful public topics demonstrate research dept
 This is a hypothesis, not demonstrated conversion, revenue, or profitability.
 Source completeness and maintenance costs also remain unverified.
 
+## Approved first customer and purchase task
+
+The user approved this decision on 2026-10-27, Asia/Taipei.
+[Issue #40](https://github.com/x168/dulan/issues/40) records the approval and document delivery.
+
+The first paying audience is small and medium-sized suppliers with experience in government contracts.
+The first validation segment is information technology services and systems integration.
+Primary users are sales leads and bid managers.
+Purchase decision-makers are business owners or managers.
+The other customer groups remain candidates for later validation.
+This approval selects a starting segment; it does not prove local demand.
+
+The first purchase task supports business development in government markets.
+The customer researches peer suppliers' government contracts, relevant buying agencies, and comparable award amounts.
+The customer exports a traceable case list for a business development meeting.
+
+The minimum pilot covers one industry with these outputs:
+
+- Organization, agency, and case searches.
+- Historical award comparisons within verified coverage.
+- Distributions by peer supplier and buying agency with clear metrics.
+- Excel case exports with source links and data versions.
+
+The acceptance task uses three peer suppliers.
+It covers their government cases and relevant buying agencies.
+It ends with a case export that includes source links.
+This task tests usable research and traceability, not winning probability or personal contact discovery.
+
+Actual historical years follow verified source coverage.
+No fixed year range, row count, launch date, or commercial success threshold is approved by this decision.
+Central enterprise grants retain their approved priority.
+The selected local grant pilot still follows central ingestion.
+Procurement and grant amounts remain separate.
+
 ## Free public topics and paid research
 
 | Visitor context | Free content | Paid content |
@@ -134,6 +168,18 @@ A further source review on 2026-10-27 confirmed the limited statements below.
 | OpenTheBooks | [Official introduction](https://www.openthebooks.com/about-us/) describes American Transparency and public-spending research | Citable public topics and traceable records | Nonprofit reach does not prove subscription conversion or low maintenance cost |
 | Deltek GovWin IQ | [Product page](https://www.deltek.com/products/govwin/) and [early-intelligence article](https://www.deltek.com/resources/articles/deltek-business-development-growth-ai/) describe procurement research and analyst contacts | Dated contract, budget, and announcement research | Historical public data alone does not reproduce analyst intelligence |
 | GovDash | [Funding announcement](https://www.govdash.com/blog/press-govdash-raises-30m-series-b-to-help-companies-win-and-manage-government-contracts-with-ai) describes opportunity, bid, and contract workflows | Deliver directly useful structured records and source packages | Funding does not prove profit, Taiwan demand, or this product's access model |
+
+The following references informed the approved first customer decision.
+Their official pages were retrieved on 2026-10-27.
+
+| Comparator | Primary evidence | Design used for the approved decision | Limit |
+| --- | --- | --- | --- |
+| Tussell | [Official supplier FAQ](https://www.tussell.com/faqs) describes sales, business development, and account research for government suppliers | Start with experienced government suppliers and a clear business user | Its audience does not prove demand in the selected Taiwan segment |
+| Stotles | [Big Blue Door customer case](https://www.stotles.com/customer/big-blue-door), published 2024-10-14, describes paid adoption and market research from contract records | Support research on peer contracts and buying agencies | The reported results are claims from a provider case, not independent causal evidence |
+| HigherGov | [Market intelligence page](https://www.highergov.com/market-intelligence/) describes agency and award analysis with Excel downloads; [pricing](https://www.highergov.com/pricing/) lists commercial plans | Connect case research, comparison, and traceable exports | Published features and prices do not establish profitability or our minimum viable scope |
+
+The Taiwan pilot is an approved local design derived from these references.
+The pilot requires local source and customer validation.
 
 OpenTheBooks reports an annual budget of approximately US$2.7 million.
 That figure is organizational context, not this product's cost estimate.
