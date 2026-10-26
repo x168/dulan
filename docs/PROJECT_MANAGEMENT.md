@@ -13,6 +13,20 @@ Other organization grants remain incidental to the approved inputs.
 Loan and guarantee work covers incidental public programme metadata only.
 Government investment and tax-benefit ingestion are outside the first release.
 
+On 2026-10-27, the user approved the first paying audience, purchase task, and minimum pilot scope.
+The first audience is small and medium-sized suppliers with experience in government contracts.
+The first validation segment is information technology services and systems integration.
+The first task uses research on peer contracts and buying agencies with traceable exports for business development.
+The pilot covers one industry with organization, agency, and case searches, historical comparisons, distributions, and Excel exports.
+Its acceptance task researches three peer suppliers, identifies relevant buying agencies, and exports a traceable case list.
+
+[Issue #40](https://github.com/x168/dulan/issues/40) records this decision.
+The [business plan](BUSINESS_PLAN.md#approved-first-customer-and-purchase-task) records customer roles and the supporting international comparisons.
+The [product requirements](PRODUCT_REQUIREMENTS.md#approved-first-research-pilot) define the pilot behavior and acceptance task.
+Actual years remain subject to source verification.
+The decision preserves central enterprise-grant priority and the later selected local pilot.
+It establishes no working product, proven demand, fixed price, historical period, or commercial success threshold.
+
 Product principles remain separate from [AGENTS.md](../AGENTS.md), which defines agent rules and engineering workflows.
 Internal documentation uses English ASD-STE100 style.
 Public content and interface text use Traditional Chinese.
