@@ -1,0 +1,50 @@
+name: PR validation
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, edited]
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+
+concurrency:
+  group: pr-validation-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  contract-documents:
+    name: PR contract and documents
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on:
+      - self-hosted
+      - home-linux
+      - home-amd64
+      - slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents
+    timeout-minutes: 10
+    steps:
+      - name: Require isolated Linux container runner
+        shell: bash
+        run: |
+          test -f /.dockerenv
+          test -n "$DAAN_CI_JOB_ROOT"
+          test -n "$DAAN_CI_JIT_OWNER"
+      - name: Check out the exact PR head
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check whitespace against the event base
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git diff --check "$BASE_SHA"...HEAD
+      - name: Run contract regression tests
+        run: python3 -m unittest discover -s scripts/ci -p 'test_*.py' -v
+      - name: Validate tracked documents
+        run: python3 scripts/ci/check_documents.py
+      - name: Validate PR body and current linked Issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/ci/validate_pr_contract.py

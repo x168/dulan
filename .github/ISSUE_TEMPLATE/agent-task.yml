@@ -1,0 +1,50 @@
+name: Agent task
+description: Define one owned outcome and its acceptance evidence.
+title: ""
+labels: [agent-task]
+body:
+  - type: markdown
+    attributes:
+      value: "Apply area, type, priority, and milestone before claiming. Follow AGENTS.md."
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: State one observable outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: owned_scope
+    attributes:
+      label: Owned scope
+      description: Name owned paths, behavior, and external settings.
+    validations:
+      required: true
+  - type: dropdown
+    id: blocker_state
+    attributes:
+      label: Blocker state
+      options: [cleared, partially cleared, not cleared]
+    validations:
+      required: true
+  - type: textarea
+    id: blocker_evidence
+    attributes:
+      label: Blocker evidence
+      description: Cite current source, service, artifact, or external evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_check
+    attributes:
+      label: Acceptance check
+      description: Name the CI command, artifact, review, or external condition that proves completion.
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-goals and follow-ups
+      description: State exclusions and link each known gap to an Issue.
+    validations:
+      required: true
