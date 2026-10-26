@@ -85,17 +85,40 @@ Use necessary receipts and delivery notices only for their transaction purpose.
 ## Public topics and paid access
 
 Select public topics through shared public-interest rules and aggregate signals.
-Record each topic's basis, sources, selection time, review, policy version, and expiry rules.
-Verify organization identity before opening a topic.
+The user approved the Google Trends trial policy recorded in [Issue #42](https://github.com/x168/dulan/issues/42).
+Collect Taiwan trending-search candidates daily for the previous 24 hours.
+Keep candidates related to government procurement or enterprise grants.
+Verify the organization or agency identity before opening a topic.
+Review its source evidence and data quality.
+Do not infer a company match solely from a trending person's name.
+Record each topic's selection reasons, source references, identity review, data versions, and policy version.
+Google Trends Explore uses a relative search-interest scale from 0 to 100.
+Scores depend on the selected geography and period.
 Do not set an unverified automatic traffic threshold.
+Do not use an Explore score above 80 as an automatic free-access condition.
+Treat low-volume zero scores as insufficient trend evidence, not proof of no searches.
 Do not choose free content from individual browsing histories.
 
-Provide complete publishable topic analysis without login within verified coverage.
+Provide complete publishable topic analysis without login for seven days from topic publication.
+Limit the analysis to verified coverage.
+Show the publication time and free-period end.
+Apply the same free-topic rights to all visitors.
+Keep published historical snapshots free after the seven-day period.
+Apply normal access rules to new deep research added after that period.
+Retain source references and correction history for published snapshots.
+Provide fixed demonstration topics with free access for industries that rarely appear in trending searches.
+
+An RSS feed is a machine-readable stream of updates.
+Assess the official Google Trends RSS feed for automated collection.
+Verify actual access and usage conditions before implementation.
+Google Trends API access remains subject to its alpha application process.
+This policy does not establish an available collector or an approved API account.
+The [business plan](BUSINESS_PLAN.md#free-public-topics-and-paid-research) records the official references and metric limits.
+
 For other organizations, provide free current-year basic records, source references, coverage, and the data cutoff date.
 Unlock available historical analysis and comparisons through a subscription.
 Sell prepared bulk exports separately, including to visitors without a subscription.
 Apply the same source, privacy, and quality requirements to free and paid content.
-Keep dated public-topic snapshots, source references, and correction history available under the published topic policy.
 
 Before checkout, show available years, fields, row counts, missing data, data versions, and delivery scope.
 When identity or data is uncertain, show that condition clearly.
