@@ -20,16 +20,15 @@ jobs:
     runs-on:
       - self-hosted
       - home-linux
-      - home-amd64
+      - ci-family-utility
+      - ci-scene-dulan-docs
       - slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents
     timeout-minutes: 10
     steps:
-      - name: Require isolated Linux container runner
+      - name: Require the shared single-container environment
         shell: bash
         run: |
-          test -f /.dockerenv
-          test -n "$DAAN_CI_JOB_ROOT"
-          test -n "$DAAN_CI_JIT_OWNER"
+          home-ci-environment check --scene dulan-docs
       - name: Check out the exact PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:

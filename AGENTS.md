@@ -835,37 +835,17 @@ commits and merging; the items below cover shared state and the CI hosts.
    `.github/ci-file-classes.json` remains the trigger source. Never add a
    GitHub-hosted fallback.
 
-   Every Linux JIT runner executes in its own one-job container. Its checkout,
-   tool setup, credentials, artifact bridge, Docker orchestration and cleanup
-   steps execute in that container; compiler and utility commands may execute
-   in the existing child containers. Linux workflow entry checks must reject
-   a native runner. Windows runners and jobs remain native.
-   The runner receives a private HOME, TMPDIR and workspace, and the
-   launcher mounts its private job root at the same absolute path on both
-   sides so existing Docker bind paths resolve correctly. The runner Docker
-   CLI connects to the engine selected by its launcher; work containers do
-   not receive that socket. Container runner placement is reported through
-   `DAAN_CI_HOST`, `DAAN_CI_JOB_ROOT` and `DAAN_CI_JIT_OWNER`.
-   Private credentials and mutable caches are never shared between jobs.
-
-   Preserve workflow resource budgets: ARM C++ child containers use four
-   CPUs and 3 GiB with no additional swap; x64 analysis and Linux Nightly
-   child containers use four CPUs and 8 GiB. Compiler parallelism equals
-   the child container CPU limit. ARM jobs must pass
-   `scripts/ci/prepare-arm-ci.sh`. Windows build and Windows Nightly builds
-   retain four concurrent compilers (#1436, #1447). Static analysis and
-   Linux Nightly retain x64 routing; ARM portable success does not replace
-   Linux x64 sanitizer, fuzz or coverage evidence. The static website retains Node 24
-   and the pinned multi-platform container index.
-   Only the thread sanitizer child needs
-   `--security-opt seccomp=unconfined`. Linux compiler and Nightly LLVM 22
-   come from the pinned compiler image, not host tool installations.
-   Utility containers use the pinned dual-architecture utility image.
-   Named child containers and job-private image-load tags are cleaned on
-   success, failure and cancellation. Do not prune other jobs' images.
-   Existing source, dependency and artifact SHA verification remains required.
-   Inspect current host and run evidence rather than historical inventories;
-   BLACK's previous WSL runner is no longer a Linux execution target.
+   Each Linux CI job executes in one container.
+   Resolve its tool environment before the runner starts.
+   Use the shared tool versions and immutable layers from `x168/home-ci-infra`.
+   Select one `ci-family-*` label and one `ci-scene-*` label.
+   Verify the scene with `home-ci-environment check` before checkout.
+   Keep tools, tests, temporary services, artifacts, and cleanup in that container.
+   Do not give the job a container-engine socket.
+   Do not start child containers or sibling containers from a job.
+   Keep each job's HOME, temporary files, credentials, and writable state private.
+   Preserve source, dependency, and artifact integrity checks.
+   Windows jobs remain native.
 
 3. Two repository settings constrain what a workflow edit may contain.
    Actions requires every action to be pinned to a commit SHA
