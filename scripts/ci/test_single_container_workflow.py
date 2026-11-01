@@ -12,11 +12,20 @@ class SingleContainerWorkflowTests(unittest.TestCase):
         source = (ROOT / ".github/workflows/pr-validation.yml").read_text(encoding="utf-8")
         labels = source.split("    runs-on:\n", 1)[1].split("    timeout-minutes:", 1)[0]
         self.assertEqual(re.findall(r"(?m)^      - (.+)$", labels), [
-            "self-hosted", "home-linux", "ci-family-utility", "ci-scene-dulan-docs",
-            "slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents",
+            "self-hosted", "home-linux", "home-${{ matrix.arch }}",
+            "ci-family-utility", "ci-scene-dulan-docs",
+            "slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents-${{ matrix.arch }}",
         ])
+        self.assertIn("arch: [amd64, arm64]", source)
+        self.assertIn("DULAN_CI_EXPECTED_ARCH: ${{ matrix.arch }}", source)
+        self.assertIn("fail-fast: false", source)
         first = source.split("    steps:\n", 1)[1].split("      - name:")[1]
         self.assertIn("home-ci-environment check --scene dulan-docs", first)
+        self.assertIn('> "$TMPDIR/dulan-docs-environment.json"', first)
+        self.assertIn("umask 077", first)
+        self.assertIn("set -C", first)
+        self.assertIn("if: ${{ !github.event.pull_request.draft }}", source)
+        self.assertIn("timeout-minutes: 10", source)
         self.assertNotIn("/.dockerenv", source)
         self.assertNotRegex(source, r"(?m)^\s+(?:container|services):")
         self.assertNotRegex(source, r"\b(?:docker|podman|nerdctl)\s+(?:run|create|exec)\b")
