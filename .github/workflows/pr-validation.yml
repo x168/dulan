@@ -15,20 +15,30 @@ concurrency:
 
 jobs:
   contract-documents:
-    name: PR contract and documents
+    name: PR contract and documents (${{ matrix.arch }})
     if: ${{ !github.event.pull_request.draft }}
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [amd64, arm64]
+    env:
+      DULAN_CI_EXPECTED_ARCH: ${{ matrix.arch }}
     runs-on:
       - self-hosted
       - home-linux
+      - home-${{ matrix.arch }}
       - ci-family-utility
       - ci-scene-dulan-docs
-      - slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents
+      - slot-${{ github.run_id }}-${{ github.run_attempt }}-contract-documents-${{ matrix.arch }}
     timeout-minutes: 10
     steps:
       - name: Require the shared single-container environment
         shell: bash
         run: |
-          home-ci-environment check --scene dulan-docs
+          set -euo pipefail
+          umask 077
+          set -C
+          home-ci-environment check --scene dulan-docs > "$TMPDIR/dulan-docs-environment.json"
       - name: Check out the exact PR head
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
